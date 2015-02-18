@@ -24,7 +24,7 @@ DEPEND="media-libs/glew
 RESTRICT=""
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="fe41fa187cadc386af132ed463c1d96e2d6deedc"
+EGIT_COMMIT="dfe19332649fff1b745957d315cf248b4627164b"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
