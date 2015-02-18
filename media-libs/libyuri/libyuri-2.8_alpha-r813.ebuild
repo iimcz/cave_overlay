@@ -18,7 +18,7 @@ DEPEND="media-libs/glew
 	dev-libs/boost
 	sdl? ( media-libs/libsdl )
 	opencv? ( media-libs/opencv )
-	ultragrid? ( media-libs/glew media-libs/speex virtual/ffmpeg )
+	ultragrid? ( media-libs/glew media-libs/speex virtual/ffmpeg app-arch/zip )
 	"
 
 
