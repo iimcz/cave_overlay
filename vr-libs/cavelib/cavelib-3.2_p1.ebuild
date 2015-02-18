@@ -11,7 +11,7 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
 S=${WORKDIR}
-DEPEND="x11-libs/openmotif"
+#DEPEND="x11-libs/openmotif"
 RESTRICT="bincheck"
 
 
