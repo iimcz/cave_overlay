@@ -1,0 +1,14 @@
+prefix=/usr/local/CAVE
+exec_prefix=${prefix}
+libdir=${prefix}/lib64
+includedir=${prefix}/include
+
+Name: cavelib
+Description: CAVELib by Mechdyne
+Version: 3.2
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir} -lcave_ogl_mt -lXi -lGL 
+Libs.private: 
+Cflags: -I${includedir}
