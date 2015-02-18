@@ -18,6 +18,7 @@ DEPEND="media-libs/glew
 	dev-libs/boost
 	sdl? ( media-libs/libsdl )
 	opencv? ( media-libs/opencv )
+	ultragrid? ( media-libs/glew media-libs/speex virtual/ffmpeg )
 	"
 
 
@@ -49,7 +50,7 @@ src_configure() {
 	if use ultragrid; then
 		einfo "Configuring ultragrid"
 		cd ${WORKDIR}/ultragrid
-		/bin/bash ./autogen.sh --enable-gpl
+		/bin/bash ./autogen.sh --enable-gpl --disable-cuda-dxt
 		mycmakeargs+=(-DYURI_DISABLE_ULTRAGRID=OFF)
 		cd ${S}
 	fi
