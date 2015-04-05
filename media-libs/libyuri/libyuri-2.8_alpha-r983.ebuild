@@ -11,11 +11,11 @@ HOMEPAGE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64"
-IUSE="+sdl +opencv ultragrid +gphoto"
+IUSE="+sdl +opencv ultragrid +gphoto +boost"
 #S=${WORKDIR}
 DEPEND="media-libs/glew
 	media-gfx/imagemagick
-	dev-libs/boost
+	boost? ( dev-libs/boost )
 	sdl? ( media-libs/libsdl )
 	opencv? ( media-libs/opencv )
 	ultragrid? ( media-libs/glew media-libs/speex virtual/ffmpeg app-arch/zip )
@@ -28,7 +28,7 @@ CMAKE_VERBOSE=OFF
 
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="0582dbf665edf6226d2d83a57a888a7748669bbf"
+EGIT_COMMIT="48cc288ef0529874a9c29f324064a9b80dc96123"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
