@@ -28,7 +28,7 @@ CMAKE_VERBOSE=OFF
 
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="6259d5683666949b4020e754e9768aabbdc9ffd7"
+EGIT_COMMIT="d544f95a0029dd40ce3d02c6b84ab14280144d66"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
