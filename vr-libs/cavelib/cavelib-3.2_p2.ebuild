@@ -1,7 +1,7 @@
 # Copyright 1999-2005 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-
+EAPI=5
 DESCRIPTION="CAVELib."
 HOMEPAGE=""
 SRC_URI="http://storage/install_cavelibeoe.sh http://storage/install_cavelib.sh"
@@ -11,7 +11,11 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
 S=${WORKDIR}
-#DEPEND="x11-libs/openmotif"
+DEPEND="x11-libs/Xmu[abi_x86_32]
+	x11-libs/Xi[abi_x86_32]
+	virtual/glu[abi_x86_32]
+
+"
 RESTRICT="bincheck"
 
 
