@@ -11,8 +11,8 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
 S=${WORKDIR}
-DEPEND="x11-libs/Xmu[abi_x86_32]
-	x11-libs/Xi[abi_x86_32]
+DEPEND="x11-libs/libXmu[abi_x86_32]
+	x11-libs/libXi[abi_x86_32]
 	virtual/glu[abi_x86_32]
 
 "
