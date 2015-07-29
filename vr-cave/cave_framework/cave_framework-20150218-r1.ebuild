@@ -16,7 +16,7 @@ IUSE="+vrml +sdl +assimp"
 DEPEND=">=vr-libs/cavelib-3.2
 	 media-libs/glew
 	 media-gfx/imagemagick
-	media-gfx/assimp
+	media-libs/assimp
 	dev-libs/boost
 	sdl? ( media-libs/libsdl )"
 
