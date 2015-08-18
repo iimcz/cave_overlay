@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit git-r3 distutils-r1
 
-DESCRIPTION="Cave LAUNcher"
-HOMEPAGE="httP;//www.iim.cz/claun"
+DESCRIPTION="Cave Launcher"
+HOMEPAGE="http://www.iim.cz/claun"
 #SRC_URI="${P}.tar.bz2"
 
 LICENSE="MIT"
