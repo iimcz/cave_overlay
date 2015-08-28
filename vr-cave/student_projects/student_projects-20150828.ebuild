@@ -10,7 +10,7 @@ HOMEPAGE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64"
-IUSE="+balls +psvis +crowd snowman"
+IUSE="+balls +psvis +crowd +snowman"
 DEPEND=">=vr-libs/cavelib-3.2 media-libs/freeglut media-libs/glew
 	psvis? ( media-libs/glm )
 	crowd? ( media-libs/devil media-libs/glm dev-libs/rapidxml dev-libs/boost dev-libs/rapidxml )
