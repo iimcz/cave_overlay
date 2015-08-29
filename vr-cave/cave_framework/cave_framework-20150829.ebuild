@@ -11,7 +11,7 @@ HOMEPAGE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64"
-IUSE="vrml +sdl +assimp"
+IUSE="vrml +sdl +assimp +vrml2"
 #S=${WORKDIR}
 DEPEND=">=vr-libs/cavelib-3.2
 	 media-libs/glew
@@ -29,6 +29,7 @@ src_configure() {
         local mycmakeargs=(
 		$(cmake-utils_use_enable assimp LOADER_ASSIMP)
 		$(cmake-utils_use_enable vrml  LOADER_VRML)
+		$(cmake-utils_use_enable vrml2  LOADER_VRML2)
 		$(cmake-utils_use_enable sdl FW_SDL)
 		-DENABLE_FW_CAVELIB=ON
         )
