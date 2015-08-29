@@ -11,7 +11,7 @@ HOMEPAGE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64"
-IUSE="vrml +sdl +assimp +vrml2"
+IUSE="vrml +sdl +assimp +vrml2 test"
 #S=${WORKDIR}
 DEPEND=">=vr-libs/cavelib-3.2
 	 media-libs/glew
@@ -31,6 +31,7 @@ src_configure() {
 		$(cmake-utils_use_enable vrml  LOADER_VRML)
 		$(cmake-utils_use_enable vrml2  LOADER_VRML2)
 		$(cmake-utils_use_enable sdl FW_SDL)
+		$(cmake-utils_use_enable test UNIT_TESTS)
 		-DENABLE_FW_CAVELIB=ON
         )
         cmake-utils_src_configure
