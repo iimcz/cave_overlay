@@ -10,10 +10,11 @@ HOMEPAGE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64"
-IUSE="+balls +psvis +crowd"
+IUSE="+balls +psvis +crowd +snowman"
 DEPEND=">=vr-libs/cavelib-3.2 media-libs/freeglut media-libs/glew
 	psvis? ( media-libs/glm )
-	crowd? ( media-libs/devil media-libs/glm dev-libs/rapidxml dev-libs/boost )"
+	crowd? ( media-libs/devil media-libs/glm dev-libs/rapidxml dev-libs/boost dev-libs/rapidxml )
+	"
 
 RESTRICT=""
 EGIT_REPO_URI="anon@git.iim.cz:cave_students"
@@ -23,6 +24,7 @@ src_configure() {
 		$(cmake-utils_use_build balls BALLS)
 		$(cmake-utils_use_build psvis PSVIS)
 		$(cmake-utils_use_build crowd CROWD)
+		$(cmake-utils_use_build snowman SNOWMAN)
         )
         cmake-utils_src_configure
 }
