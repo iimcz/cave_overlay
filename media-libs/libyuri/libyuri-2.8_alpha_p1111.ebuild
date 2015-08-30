@@ -11,7 +11,7 @@ HOMEPAGE=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64"
-IUSE="+sdl +opencv ultragrid +gphoto +boost"
+IUSE="+sdl +opencv ultragrid +gphoto +boost test"
 #S=${WORKDIR}
 DEPEND="media-libs/glew
 	media-gfx/imagemagick
@@ -28,7 +28,7 @@ CMAKE_VERBOSE=OFF
 
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="2c992f5b33920cc72878a8504820e966841ef0ca"
+EGIT_COMMIT="130ba5bd56237b1d649f00bad91095e4f6fa49eb"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
@@ -48,6 +48,9 @@ src_configure() {
 #		-DENABLE_FW_CAVELIB=ON
 #		$(cmake-utils_use ! ultragrid YURI_DISABLE_ULTRAGRID)
         )
+	if use test; then
+		mycmakeargs=( -DYURI_DISABLE_TESTS=OFF )
+	fi
 	if use ultragrid; then
 		einfo "Configuring ultragrid"
 		cd ${WORKDIR}/ultragrid
@@ -55,7 +58,7 @@ src_configure() {
 		mycmakeargs+=(-DYURI_DISABLE_ULTRAGRID=OFF)
 		cd ${S}
 	fi
-        cmake-utils_src_configure
+        cmake-utils_src_configure ${mycmakeargs}
 }
 
 src_compile() {
