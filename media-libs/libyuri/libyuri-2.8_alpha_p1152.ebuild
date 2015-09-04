@@ -10,7 +10,7 @@ HOMEPAGE=""
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 amd64"
+KEYWORDS="~x86 amd64 arm"
 IUSE="+sdl +opencv ultragrid +gphoto +boost test"
 #S=${WORKDIR}
 DEPEND="media-libs/glew
@@ -28,7 +28,7 @@ CMAKE_VERBOSE=OFF
 
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="7b403905aab6bde6656ead1bd4e533c059a0dd7d"
+EGIT_COMMIT="5e164609834621dbe06524820ba60b7e89fdbab1"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
