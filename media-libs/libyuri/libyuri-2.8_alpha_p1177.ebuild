@@ -5,12 +5,12 @@ EAPI=5
 inherit git-r3 cmake-utils
 
 DESCRIPTION="libyuri"
-HOMEPAGE=""
+HOMEPAGE="http://www.libyuri.org"
 #SRC_URI="${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 amd64"
+KEYWORDS="~x86 amd64 arm"
 IUSE="+sdl +opencv ultragrid +gphoto +boost test"
 #S=${WORKDIR}
 DEPEND="media-libs/glew
@@ -22,13 +22,12 @@ DEPEND="media-libs/glew
 	gphoto? ( media-libs/libgphoto2 )
 	"
 
-
 RESTRICT=""
 CMAKE_VERBOSE=OFF
 
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="45c6cef4b6c8b632bcbcafd163b00e76759470f8"
+EGIT_COMMIT="92c4678512719d6e22b9395ad419f571af7c8ec5"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
