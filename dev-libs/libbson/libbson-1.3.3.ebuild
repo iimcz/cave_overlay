@@ -32,7 +32,7 @@ src_configure() {
 		--disable-optimizations \
 		$(use_enable debug) \
 		$(use_enable static-libs static) \
-		--enable-man-pages=yes
+		--enable-man-pages=no
 }
 
 src_install() {
