@@ -22,7 +22,7 @@ EGIT_REPO_URI="https://github.com/v154c1/nagios_plugins.git"
 
 
 src_install() {
-	insinto /usr/lib/nagios/
+	insinto /usr/lib/nagios/plugins
 	for i in plugins/*; do
 		doins ${i}
 	done
