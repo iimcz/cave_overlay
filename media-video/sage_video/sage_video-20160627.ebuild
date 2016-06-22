@@ -38,7 +38,7 @@ src_install() {
 
 	python_foreach_impl python_doscript python/sage_video/sagevideo.py
 	dosym /usr/bin/sagevideo.py /usr/bin/sagevideo
-	insinto /etc
+	insinto /etc/sage_video/
 	newins python/config.json.sample config.json.sample
 	dodir /usr/share/sage_video/configs
 	cp -R "${S}/configs" "${D}/usr/share/sage_video/" || die "Install failed!"
