@@ -1,0 +1,45 @@
+# Copyright 1999-2005 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+EAPI=5
+PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
+inherit git-r3 python-utils-r1 python-r1
+
+DESCRIPTION="Sage video player"
+HOMEPAGE="http://www.libyuri.org"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~x86 amd64 arm"
+IUSE=""
+#S=${WORKDIR}
+DEPEND="media-libs/libyuri
+	media-video/ffmpeg
+	"
+
+
+RESTRICT=""
+CMAKE_VERBOSE=OFF
+
+EGIT_REPO_URI="https://github.com/v154c1/sage_video"
+EGIT_BRANCH="master"
+#EGIT_COMMIT="1d002b67bc5407b94e000d659477f3ee1b3ad9e1"
+
+
+#src_unpack() {
+#	git-r3_fetch
+#	git-r3_checkout
+#}
+
+#src_compile() {
+#}
+
+src_install() {
+
+	python_foreach_impl python_doscript python/sage_video/sagevideo.py
+	dosym /usr/bin/sagevideo /usr/bin/sagevideo.py
+	insinto /etc
+	newins python/config.json.sample config.json.sample
+	dodir /usr/share/sage_video/configs
+	cp -R "${S}/configs" "${D}/usr/share/sage_video/" || die "Install failed!"
+}
