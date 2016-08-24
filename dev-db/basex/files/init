@@ -1,0 +1,19 @@
+#!/sbin/openrc-run
+# Released under the 2-clause BSD license.
+
+BASEXDIR='/opt/basex'
+
+start()
+{
+        ebegin "Starting baseX server"
+	${BASEXDIR}/bin/basexserver -S
+        eend $?
+}
+
+stop()
+{
+        ebegin "Stopping baseX server"
+	${BASEXDIR}/bin/basexserver stop
+        eend $?
+}
+
