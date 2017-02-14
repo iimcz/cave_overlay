@@ -27,7 +27,7 @@ CMAKE_VERBOSE=OFF
 
 EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="ade562754291b32afcccde0ff9f483b968dfce7e"
+EGIT_COMMIT="382816647c985f46286cdc4301689dfa295a8661"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
@@ -53,7 +53,7 @@ src_configure() {
 	if use ultragrid; then
 		einfo "Configuring ultragrid"
 		cd ${WORKDIR}/ultragrid
-		/bin/bash ./autogen.sh --enable-gpl --disable-cuda-dxt
+		/bin/bash ./autogen.sh --enable-gpl --disable-cuda-dxt --disable-cuda
 		mycmakeargs+=(-DYURI_DISABLE_ULTRAGRID=OFF)
 		cd ${S}
 	fi
