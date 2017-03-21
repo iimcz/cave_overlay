@@ -37,7 +37,9 @@ EGIT_BRANCH="master"
 src_install() {
 
 	python_foreach_impl python_doscript python/sage_video/sagevideo.py
+	python_foreach_impl python_doscript python/sage_video/sagewebcam.py
 	dosym /usr/bin/sagevideo.py /usr/bin/sagevideo
+	dosym /usr/bin/sagewebcam.py /usr/bin/sagewebcam
 	insinto /etc/sage_video/
 	newins python/config.json.sample config.json.sample
 	dodir /usr/share/sage_video/configs
