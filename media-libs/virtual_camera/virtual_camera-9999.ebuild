@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/v154c1/virtual_camera"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 ~x86"
-IUSE="+samples"
+IUSE=""
 
 DEPEND=""
 
