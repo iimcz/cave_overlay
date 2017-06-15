@@ -30,5 +30,7 @@ src_install() {
 	linux-mod_src_install
 	cd ${S}/utils
 	emake DESTDIR="${D}" install
+	insinto /etc/udev/rules.s
+	newins ${S}/udev/66-vcmod.rules 66-vcmod.rules
 }
 
