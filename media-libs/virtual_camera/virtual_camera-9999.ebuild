@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 EAPI=6
-inherit linux-info linux-mod git-r3
+inherit linux-info linux-mod git-r3 udev
 
 
 DESCRIPTION="Virtual V4L2 webcamera"
@@ -30,7 +30,12 @@ src_install() {
 	linux-mod_src_install
 	cd ${S}/utils
 	emake DESTDIR="${D}" install
-	insinto /etc/udev/rules.d
-	newins ${S}/udev/66-vcmod.rules 66-vcmod.rules
+	#insinto /etc/udev/rules.d
+	#newins ${S}/udev/66-vcmod.rules 66-vcmod.rules
+	udev_dorules ${S}/udev/66-vcmod.rules
+}
+
+pkg_postinst() {
+	udev_reload
 }
 
