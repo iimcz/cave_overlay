@@ -15,7 +15,7 @@ IUSE="+virtual-camera"
 #S=${WORKDIR}
 DEPEND="media-libs/libyuri
 	media-video/ffmpeg
-	virtual-camera? ( media-libs/virtual-camera )
+	virtual-camera? ( media-libs/virtual_camera )
 	"
 
 
