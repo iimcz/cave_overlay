@@ -25,7 +25,8 @@ DEPEND="media-libs/glew
 RESTRICT=""
 CMAKE_VERBOSE=OFF
 
-EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
+#EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
+EGIT_REPO_URI="https://github.com/v154c1/libyuri"
 EGIT_BRANCH="2.8.x"
 EGIT_COMMIT="ed0f774a7c30060fab79be72d46e18c0594fd854"
 
