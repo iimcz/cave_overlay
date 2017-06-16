@@ -11,10 +11,11 @@ HOMEPAGE="http://www.libyuri.org"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 amd64 arm"
-IUSE=""
+IUSE="+virtual-camera"
 #S=${WORKDIR}
 DEPEND="media-libs/libyuri
 	media-video/ffmpeg
+	virtual-camera? ( media-libs/virtual-camera )
 	"
 
 
@@ -38,10 +39,16 @@ src_install() {
 
 	python_foreach_impl python_doscript python/sage_video/sagevideo.py
 	python_foreach_impl python_doscript python/sage_video/sagewebcam.py
+	python_foreach_impl python_doscript python/sage_video/sagewebjpeg.py
+	python_foreach_impl python_doscript python/sage_video/sagewebrtc.py
 	dosym /usr/bin/sagevideo.py /usr/bin/sagevideo
 	dosym /usr/bin/sagewebcam.py /usr/bin/sagewebcam
+	dosym /usr/bin/sagewebjpeg.py /usr/bin/sagewebjpeg
+	dosym /usr/bin/sagewebrtc.py /usr/bin/sagewebrtc
 	insinto /etc/sage_video/
 	newins python/config.json.sample config.json.sample
 	dodir /usr/share/sage_video/configs
 	cp -R "${S}/configs" "${D}/usr/share/sage_video/" || die "Install failed!"
+	dodir /usr/share/sage_video/sage2_apps
+	cp -R "${S}/sage2_apps" "${D}/usr/share/sage_video/" || die "Install failed!"
 }
