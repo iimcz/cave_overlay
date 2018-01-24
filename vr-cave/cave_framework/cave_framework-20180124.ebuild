@@ -23,7 +23,8 @@ DEPEND=">=vr-libs/cavelib-3.2
 
 RESTRICT=""
 EGIT_REPO_URI="anon@git.iim.cz:cave_framework"
-EGIT_BRANCH="optix"
+EGIT_BRANCH="yuri"
+EGIT_COMMIT="e4233b9c1984be749ef43d2f647bae4721e24200"
 
 src_configure() {
         local mycmakeargs=(
