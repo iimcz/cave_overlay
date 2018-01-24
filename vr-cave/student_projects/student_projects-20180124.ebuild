@@ -18,6 +18,7 @@ DEPEND=">=vr-libs/cavelib-3.2 media-libs/freeglut media-libs/glew
 
 RESTRICT=""
 EGIT_REPO_URI="anon@git.iim.cz:cave_students"
+EGIT_COMMIT="a0deecf1147f496b76238a12163051ca37cd826a"
 
 src_configure() {
         local mycmakeargs=(
