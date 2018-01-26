@@ -30,6 +30,6 @@ RESTRICT=""
 
 EGIT_REPO_URI="anon@git.iim.cz:claun"
 EGIT_BRANCH="master"
-EGIT_COMMIT="d75d6125ca3fc74b8f881b4e2aa47d79b51dee98"
+EGIT_COMMIT="2fb6c2b65c5b7916b219089d3d574ca058c56558"
 
 S="${S}/src"
