@@ -12,8 +12,8 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64 ~arm"
 IUSE=""
 #S=${WORKDIR}
-DEPEND="dev-utils/nvidia-cuda-toolkit
-	dev-utils/nvidia-cuda-sdk
+DEPEND="dev-util/nvidia-cuda-toolkit
+	dev-util/nvidia-cuda-sdk
 	virtual/opengl
 	media-libs/glew
 	media-libs/freeglut
