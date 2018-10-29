@@ -25,8 +25,7 @@ RDEPEND=">=virtual/glu-9.0-r1[${MULTILIB_USEDEP}]
 # gles? ( media-libs/mesa[gles1,${MULTILIB_USEDEP}] )
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	>=x11-proto/inputproto-2.3[${MULTILIB_USEDEP}]
-	>=x11-proto/xproto-7.0.24[${MULTILIB_USEDEP}]"
+	x11-base/xorg-proto[${MULTILIB_USEDEP}]"
 
 PATCHES=(
 	"${FILESDIR}/freeglut-3.0.0-no_fgStructure-fix.patch"
