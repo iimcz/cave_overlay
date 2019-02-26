@@ -1,7 +1,7 @@
 # Copyright 1999-2005 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=5
+EAPI=6
 inherit git-r3 cmake-utils
 
 DESCRIPTION="libyuri"
@@ -38,9 +38,11 @@ src_unpack() {
 	if use ultragrid; then
 		git-r3_fetch ${EGIT_UV_REPO} HEAD
 		git-r3_checkout ${EGIT_UV_REPO} ultragrid
+		cd ${WORKDIR}/ultragrid
+		eapply "${FILESDIR}/uv_missing_includes.patch"
 	fi
-
 }
+
 
 src_configure() {
         local mycmakeargs=(
