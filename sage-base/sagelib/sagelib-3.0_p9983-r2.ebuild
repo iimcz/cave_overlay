@@ -53,6 +53,7 @@ src_prepare() {
 #	EPATCH_SUFFIX="patch" epatch "${WORKDIR}/patches"
 	if use newwx ; then
 		eapply "${FILESDIR}/sagelib-3.0-wxwidgets.patch"
+		eapply "${FILESDIR}/sagelib-3.0-build.patch"
 	fi
 
 	eapply_user
