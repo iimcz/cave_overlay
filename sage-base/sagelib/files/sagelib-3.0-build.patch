@@ -1,0 +1,27 @@
+diff -Naur a/config.mk b/config.mk
+--- a/config.mk	2018-04-04 16:54:48.000000000 +0200
++++ b/config.mk	2019-05-12 13:02:09.084664884 +0200
+@@ -21,8 +21,8 @@
+ #FS_CONSOLE=fsConsole
+ 
+ COMPILER=g++
+-SAGE_CFLAGS=-Wno-deprecated -fPIC
+-SAGE_LDFLAGS=
++SAGE_CFLAGS=-Wno-deprecated -fPIC ${CXXFLAGS}
++SAGE_LDFLAGS=${LDFLAGS}
+ 
+ # SDL
+ ifndef SAIL_ONLY
+diff -Naur a/src/Makefile b/src/Makefile
+--- a/src/Makefile	2018-01-03 20:54:41.000000000 +0100
++++ b/src/Makefile	2019-05-12 13:02:09.187998222 +0200
+@@ -8,7 +8,7 @@
+ QUANTA_CFLAGS=-I${SDIR}/QUANTA/include
+ QUANTA_LDFLAGS=-L${SDIR}/lib -lquanta
+ 
+-MYFLAGS=${SAGE_CFLAGS} -O3 -I../include $(SDL_CFLAGS) $(QUANTA_CFLAGS) $(MAGICK_CFLAGS) $(GLEW_CFLAGS) $(GLSL_YUV_DEFINE) $(PORTAUDIO_CFLAGS) $(SUN_INCLUDE) -DSAGE_S3D
++MYFLAGS=${SAGE_CFLAGS}  -I../include $(SDL_CFLAGS) $(QUANTA_CFLAGS) $(MAGICK_CFLAGS) $(GLEW_CFLAGS) $(GLSL_YUV_DEFINE) $(PORTAUDIO_CFLAGS) $(SUN_INCLUDE) -DSAGE_S3D -O0
+ 
+ LIBS=-O $(SDL_LIBS) $(XLIBS) -lpthread -lm -ldl $(GLEW_LIB) $(SUN_LIBS) $(QUANTA_LDFLAGS) $(MAGICK_LIBS)
+ 
+
