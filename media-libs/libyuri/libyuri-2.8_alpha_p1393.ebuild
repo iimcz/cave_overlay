@@ -28,7 +28,7 @@ CMAKE_VERBOSE=OFF
 #EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_REPO_URI="https://github.com/v154c1/libyuri"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="deb4d8ec043106bc23ad45c249ef74ff29324491"
+EGIT_COMMIT="e02611f499ace89907aba61bfb80cfcb80120cbf"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
