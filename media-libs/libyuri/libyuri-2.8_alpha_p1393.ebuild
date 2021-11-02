@@ -1,7 +1,7 @@
 # Copyright 1999-2005 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=6
+EAPI=7
 inherit git-r3 cmake-utils
 
 DESCRIPTION="libyuri"
@@ -21,6 +21,9 @@ DEPEND="media-libs/glew
 	ultragrid? ( media-libs/glew media-libs/speex virtual/ffmpeg app-arch/zip )
 	gphoto? ( media-libs/libgphoto2 )
 	"
+PATCHES=(
+	"${FILESDIR}/sgen_missing_includes.patch"
+)
 
 RESTRICT=""
 CMAKE_VERBOSE=OFF
@@ -42,7 +45,6 @@ src_unpack() {
 		eapply "${FILESDIR}/uv_missing_includes.patch"
 	fi
 }
-
 
 src_configure() {
         local mycmakeargs=(
