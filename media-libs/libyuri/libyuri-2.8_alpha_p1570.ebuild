@@ -1,37 +1,36 @@
 # Copyright 1999-2005 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=7
-inherit git-r3 cmake-utils
+EAPI=8
+inherit git-r3 cmake
 
-DESCRIPTION="libyuri"
+DESCRIPTION="libyuri - a configurable A/V processing framework"
 HOMEPAGE="http://www.libyuri.org"
-#SRC_URI="${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 amd64 arm"
-IUSE="+sdl +opencv ultragrid +gphoto +boost test"
-#S=${WORKDIR}
+KEYWORDS="amd64 ~arm ~x86"
+IUSE="+sdl +opencv +gphoto +boost +snappy ultragrid test"
+# TODO: snappy depend should be optional but upstream doesn't support that yet.
 DEPEND="media-libs/glew
 	media-gfx/imagemagick
+	app-arch/snappy
+	media-video/ffmpeg
 	boost? ( dev-libs/boost )
 	sdl? ( media-libs/libsdl )
 	opencv? ( media-libs/opencv )
-	ultragrid? ( media-libs/glew media-libs/speex virtual/ffmpeg app-arch/zip )
+	ultragrid? ( media-libs/glew media-libs/speex app-arch/zip )
 	gphoto? ( media-libs/libgphoto2 )
 	"
 PATCHES=(
-	"${FILESDIR}/sgen_missing_includes.patch"
+	"${FILESDIR}/ffmpeg-6-fixes.patch"
 )
 
 RESTRICT=""
-CMAKE_VERBOSE=OFF
 
-#EGIT_REPO_URI="anon@git.iim.cz:yuri-light"
 EGIT_REPO_URI="https://github.com/v154c1/libyuri"
 EGIT_BRANCH="2.8.x"
-EGIT_COMMIT="e02611f499ace89907aba61bfb80cfcb80120cbf"
+EGIT_COMMIT="b05b7d72cba50afa92ad3be6ca4a513acaa55ce1"
 
 EGIT_UV_REPO="anon@git.iim.cz:ultragrid"
 
@@ -41,37 +40,37 @@ src_unpack() {
 	if use ultragrid; then
 		git-r3_fetch ${EGIT_UV_REPO} HEAD
 		git-r3_checkout ${EGIT_UV_REPO} ultragrid
-		cd ${WORKDIR}/ultragrid
+		cd "${WORKDIR}"/ultragrid
 		eapply "${FILESDIR}/uv_missing_includes.patch"
 	fi
 }
 
 src_configure() {
-        local mycmakeargs=(
+	local mycmakeargs=(
 #		$(cmake-utils_use sdl YURI_DISABLE_)
 #		-DENABLE_FW_CAVELIB=ON
 #		$(cmake-utils_use ! ultragrid YURI_DISABLE_ULTRAGRID)
-        )
+	)
 	if use test; then
 		mycmakeargs=( -DYURI_DISABLE_TESTS=OFF )
 	fi
 	if use ultragrid; then
 		einfo "Configuring ultragrid"
-		cd ${WORKDIR}/ultragrid
+		cd "${WORKDIR}"/ultragrid
 		/bin/bash ./autogen.sh --enable-gpl --disable-cuda-dxt --disable-cuda
 		mycmakeargs+=(-DYURI_DISABLE_ULTRAGRID=OFF)
-		cd ${S}
+		cd "${S}"
 	fi
-        cmake-utils_src_configure ${mycmakeargs}
+	cmake_src_configure ${mycmakeargs}
 }
 
 src_compile() {
 	if use ultragrid; then
 		einfo "Compiling ultragrid"
-		cd ${WORKDIR}/ultragrid
+		cd "${WORKDIR}"/ultragrid
 		emake
 		mycmakeargs+=(-DYURI_DISABLE_ULTRAGRID=OFF)
-		cd ${S}
+		cd "${S}"
 	fi
-        cmake-utils_src_compile
+	cmake_src_compile
 }
