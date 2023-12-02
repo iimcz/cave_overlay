@@ -10,23 +10,26 @@ SRC_URI="Blackmagic_DeckLink_SDK_${PV}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 amd64 arm"
-IUSE="+samples"
+KEYWORDS="amd64 arm ~x86"
+IUSE="+examples"
 
 S="${WORKDIR}/Blackmagic DeckLink SDK ${PV}"
 
-DEPEND=""
+DEPEND="app-arch/unzip"
 
 RESTRICT="fetch"
 
-INCLUDE_DIR="/usr/include/decklink/include/"
+INCLUDE_DIR="/usr/include/decklink/"
 SAMPLE_DIR="/usr/share/BlackmagicDecklinkSDK/Samples/"
 
 src_install() {
-	mkdir -p ${D}${INCLUDE_DIR}
+	mkdir -p "${D}${INCLUDE_DIR}"
 	rsync -avP "${S}/Linux/include/" "${D}${INCLUDE_DIR}"
-	if use samples; then
-		mkdir -p ${D}${SAMPLE_DIR}
+	if use examples; then
+		# Demove prebuilt sample binaries
+		rm -r "${S}/Linux/Samples/bin"
+
+		mkdir -p "${D}${SAMPLE_DIR}"
 		rsync -avP "${S}/Linux/Samples/" "${D}${SAMPLE_DIR}"
 	fi
 
