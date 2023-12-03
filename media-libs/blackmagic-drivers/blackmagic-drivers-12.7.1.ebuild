@@ -12,14 +12,11 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64"
 
-#S="${WORKDIR}/Blackmagic_Desktop_Video_Linux_${PV}"
-
 DEPEND="dev-qt/qtwidgets:5
 	dev-qt/qtgui:5
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	virtual/udev"
-
 
 RESTRICT="fetch"
 
@@ -30,17 +27,20 @@ BM_BM_DIR="${BM_MOD_BASE}blackmagic-${DRIVER_VERSION}"
 BM_IO_DIR="${BM_MOD_BASE}blackmagic-io-${DRIVER_VERSION}"
 
 src_unpack() {
-	unpack ${A}
-	mkdir -p ${S}
-	cd ${S}
+	unpack "${A}"
+	mkdir -p "${S}"
+	cd "${S}"
 	unpack "${WORKDIR}/Blackmagic_Desktop_Video_Linux_${PV}/other/x86_64/desktopvideo-${DRIVER_VERSION}-x86_64.tar.gz"
 }
 
 src_compile() {
-	local modlist=( blackmagic=video:"${BM_BM_DIR}":"${BM_BM_DIR}" blackmagic-io=video:"${BM_IO_DIR}":"${BM_IO_DIR}" snd_blackmagic-io=video:"${BM_IO_DIR}":"${BM_IO_DIR}" )
+	local modlist=(
+		blackmagic=video:"${BM_BM_DIR}":"${BM_BM_DIR}"
+		blackmagic-io=video:"${BM_IO_DIR}":"${BM_IO_DIR}"
+		snd_blackmagic-io=video:"${BM_IO_DIR}":"${BM_IO_DIR}"
+	)
 	linux-mod-r1_src_compile
 }
-
 
 src_install() {
 	linux-mod-r1_src_install
