@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 EAPI=8
-#inherit git-r3 cmake-utils
 
 DESCRIPTION="Blackmagic Design Decklink SDK"
 HOMEPAGE="http://www.blackmagicdesign.com"
@@ -10,7 +9,7 @@ SRC_URI="Blackmagic_DeckLink_SDK_${PV}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm ~x86"
+KEYWORDS="amd64"
 IUSE="+examples"
 
 S="${WORKDIR}/Blackmagic DeckLink SDK ${PV}"
